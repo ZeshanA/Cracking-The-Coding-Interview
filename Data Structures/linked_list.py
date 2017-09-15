@@ -17,3 +17,7 @@ class LinkedList(object):
             for i in range(0, index):
                 cur_node = cur_node.next_node
             return cur_node
+
+    def set(self, index, item):
+        node = self.get(index)
+        node.item = item
