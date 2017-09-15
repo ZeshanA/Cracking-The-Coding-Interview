@@ -72,6 +72,7 @@ class LinkedList(object):
         else:
             self.last_node().next_node = new_node
 
+
 ll = LinkedList()
 for i in range(0, 10):
     ll.append(i)
