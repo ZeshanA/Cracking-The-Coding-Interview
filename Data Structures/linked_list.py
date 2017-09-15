@@ -71,3 +71,9 @@ class LinkedList(object):
             self.head = new_node
         else:
             self.last_node().next_node = new_node
+
+ll = LinkedList()
+for i in range(0, 10):
+    ll.append(i)
+for i in range(0, ll.length):
+    print(ll.get(i).item)
