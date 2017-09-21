@@ -13,6 +13,9 @@ class Queue(object):
         self.__list__.remove(head)
         return head
 
+    def peek(self):
+        return self.__list__[0]
+
     def __str__(self):
         return self.__list__.__str__()
 
