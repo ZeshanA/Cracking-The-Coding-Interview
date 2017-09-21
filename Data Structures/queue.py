@@ -15,3 +15,13 @@ class Queue(object):
 
     def __str__(self):
         return self.__list__.__str__()
+
+
+q = Queue()
+q.append("1")
+q.append("2")
+q.append("3")
+q.append("4")
+print(q)
+print("Popped %s" % q.pop())
+print(q)
