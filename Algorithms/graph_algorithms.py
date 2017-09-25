@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Node(object):
 
     def __init__(self, num):
@@ -34,18 +37,40 @@ class Graph(object):
                 return True
         return False
 
+    def bfs(self, start, target):
+        start = self.nodes[start]
+        target = self.nodes[target]
+        queue = deque()
+        visited = {}
+        queue.append(start)
+        while len(queue) != 0:
+            cur_node = queue.pop()
+            print(cur_node.num)
+            if cur_node == target:
+                return True
+            if cur_node in visited:
+                continue
+            visited[cur_node] = True
+
+            for child in cur_node.children:
+                queue.append(child)
+
+        return False
+
 
 # Set up test instances
 g = Graph()
 n = []
-num_nodes = 4
+num_nodes = 10
 
 # Create an array of nodes
 for i in range(0, num_nodes):
-    n[i] = Node(i)
+    n.append(Node(i))
 
 # Create relationships between the nodes
 n[1].add_child(n[2])
+n[1].add_child(n[4])
+n[1].add_child(n[7])
 n[2].add_child(n[3])
 n[3].add_child(n[4])
 
@@ -53,4 +78,7 @@ n[3].add_child(n[4])
 for i in range(0, num_nodes):
     g.add_node(n[i])
 
-g.dfs(1, 10)
+print("DFS:")
+g.dfs(1, 4)
+print("BFS:")
+g.bfs(1, 4)
