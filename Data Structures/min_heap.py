@@ -75,3 +75,12 @@ class MinHeap(object):
 
     def print(self):
         print(self._items)
+
+
+mh = MinHeap()
+values = [10, 15, 17, 20, 25]
+for num in values:
+    mh.add(num)
+mh.print()
+print("Removing minimum: %i" % mh.remove_min())
+mh.print()
