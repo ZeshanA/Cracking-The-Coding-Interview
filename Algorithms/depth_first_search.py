@@ -33,3 +33,24 @@ class Graph(object):
             if self.dfs_helper(child, target, visited):
                 return True
         return False
+
+
+# Set up test instances
+g = Graph()
+n = []
+num_nodes = 4
+
+# Create an array of nodes
+for i in range(0, num_nodes):
+    n[i] = Node(i)
+
+# Create relationships between the nodes
+n[1].add_child(n[2])
+n[2].add_child(n[3])
+n[3].add_child(n[4])
+
+# Populate graph with nodes from above
+for i in range(0, num_nodes):
+    g.add_node(n[i])
+
+g.dfs(1, 10)
